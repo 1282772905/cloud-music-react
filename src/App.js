@@ -8,15 +8,20 @@ import { HashRouter } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import routes from './routes/index';
 
+// store
+import { Provider } from 'react-redux';
+import store from './store/index';
+
 function App() {
-  console.log(renderRoutes(routes));
   return (
-    <HashRouter>
-      <GlobalStyle></GlobalStyle>
-      <IconStyle></IconStyle>
-      {renderRoutes(routes)}
-    </HashRouter>
-      
+    <Provider store={store}>
+      <HashRouter>
+        <GlobalStyle></GlobalStyle>
+        <IconStyle></IconStyle>
+        {renderRoutes(routes)}
+      </HashRouter>
+    </Provider>
+
   );
 }
 
